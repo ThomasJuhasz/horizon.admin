@@ -1,0 +1,84 @@
+.sign-up-header {
+    margin-bottom: 20px;
+}
+
+.login-container {
+    width: 730px;
+
+    @media (max-width: 730px) {
+
+        .login-box, .register-box {
+            width: 100% !important;
+            margin-bottom: 0;
+            text-align: left;
+        }
+    }
+
+    @media (min-width: 390px) and (max-width: 730px) {
+        width: 390px;
+    }
+
+    @media (max-width: 390px) and (max-width: 730px) {
+        width: 99% !important;
+        margin: 0 .5%;
+    }
+
+    .login-box {
+        width: 53%;
+
+        @media (max-width: 390px) {
+            padding-bottom: 0 !important;
+
+            h1 {
+                font-size: 2rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .login-button-container {
+            margin: 0 15px;
+
+            @media (min-width: 391px) {
+                width: 140px;
+            }
+
+            @media (max-width: 390px) {
+                width: 100% !important;
+                margin-bottom: 10px;
+            }
+        }
+
+        .forgot-password-container {
+            margin: 0 15px;
+
+            button:hover {
+                cursor: pointer;
+            }
+
+            @media (min-width: 391px) {
+                text-align: right;
+                width: 38%;
+            }
+
+            @media (max-width: 390px) {
+                text-align: left;
+                width: 100% !important;
+            }
+        }
+    }
+
+    .register-box {
+        width: 47%;
+
+        .card-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    }
+}

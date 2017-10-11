@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <strong>{{dish.name}}</strong>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <div class="form-group row" *ngIf="dish.id">
+                                <label class="col-md-3 form-control-label" for="textarea-input">{{'dish.id' | i18n}}</label>
+                                <div class="col-md-9">
+                                    <p class="form-control-static">{{dish.id}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="text-input">{{'dish.name' | i18n}}</label>
+                                <div class="col-md-9">
+                                    <input type="text" [(ngModel)]="dish.name" name="dish-name" class="form-control" placeholder="{{'dish.name' | i18n}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="text-input">{{'dish.rating' | i18n}}</label>
+                                <div class="col-md-9">
+                                    <div class="rating-container">
+                                        <star-rating-comp [rating]="dish.rating.value" [starType]="'svg'" [readOnly]="true" [showHalfStars]="true"></star-rating-comp>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="select">{{'dish.category' | i18n}}</label>
+                                <div class="col-md-9">
+                                    <select id="select" name="category" class="form-control input-lg" [(ngModel)]="dish.category.id">
+                                        <option value="-1">Please select</option>
+                                        <option *ngFor="let c of categories" [ngValue]="c.id">{{c.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="textarea-input">{{'dish.description' | i18n}}</label>
+                                <div class="col-md-9">
+                                    <textarea [(ngModel)]="dish.description" name="textarea-input" rows="6" class="form-control" placeholder="Content.."></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> {{'forms.save' | i18n}}</button>
+                <button type="submit" class="btn btn-sm btn-secondary"><i class="fa fa-dot-circle-o"></i> {{'forms.cancel' | i18n}}</button>
+                <div class="pull-right">
+                    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> {{'forms.delete' | i18n}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="{{dish.image}}" alt="{{dish.name}}">
+    </div>
+</div>

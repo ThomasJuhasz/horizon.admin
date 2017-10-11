@@ -1,0 +1,83 @@
+<div class="animated fadeIn dish-list-container right-sidebar-container right-sidebar-hidden">
+    <div class="categories-container">
+        <div class="header-row">
+            <span class="add-category-button" (click)="addCategory()" *ngIf="!newCategory">
+                <i class="glyphicons glyphicons-plus"></i>
+                <span>{{'dishList.add_category' | i18n}}</span>
+            </span>
+            <span class="filter-button" appRightSidebarToggler>
+                <i class="fa fa-filter"></i>
+            </span>
+        </div>
+        <div class="card" *ngIf="newCategory">
+            <div class="card-header">
+                <input type="text" [(ngModel)]="newCategory.name" autofocus>
+                <button>Mentés</button>
+                <button (click)="newCategory = null">Mégse</button>
+            </div>
+            <div class="card-block">
+                save doesn't work yet. Style update is also incoming :)
+            </div>
+        </div>
+
+        <div *ngFor="let category of filteredCategories">
+            <div class="card">
+                <div class="card-header">
+                    {{category.name}}
+                    <div class="add-dish-button" routerLink="/dishes/add">
+                        <i class="glyphicons glyphicons-plus"></i>
+                        <span>{{'dishList.add_dish' | i18n}}</span>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <table class="table table-responsive table-hover table-sm col-12">
+                        <thead>
+                            <tr class="row">
+                                <th class="col-4 col-md-2 image">{{'dishList.image' | i18n}}</th>
+                                <th class="col-8 col-md-4 name">{{'dishList.name' | i18n}}</th>
+                                <th class="hidden-sm-down col-md-4 description">{{'dishList.description' | i18n}}</th>
+                                <th class="hidden-sm-down col-md-1 rating">{{'dishList.rating' | i18n}}</th>
+                                <th class="hidden-sm-down col-md-1 price">{{'dishList.price' | i18n}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dish of category.dishes" class="row" routerLink="/dishes/{{dish.id}}">
+                                <td class="col-4 col-md-2 image"><img src="{{dish.image}}" alt="{{dish.name}}" /></td>
+                                <td class="col-8 col-md-4 name">
+                                    <span>{{dish.name}}</span>
+                                    <div class="hidden-md-up small-device-description">
+                                        <p>{{dish.description}}</p>
+                                        <p><span>{{'dishList.rating' | i18n}}:</span> {{dish.rating.value}}</p>
+                                        <p>{{dish.price}} {{dish.currency}}</p>
+                                    </div>
+                                </td>
+                                <td class="hidden-sm-down col-md-4 description">{{dish.description}}</td>
+                                <td class="hidden-sm-down col-md-1 rating">{{dish.rating.value}}</td>
+                                <td class="hidden-sm-down col-md-1 price">{{dish.price}} {{dish.currency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="right-sidebar filter-bar">
+        <div class="card-header">
+            Filters
+            <div class="sidebar-close-button" appRightSidebarToggler>
+                <i class="fa fa-close"></i>
+            </div>
+        </div>
+        <div class="card-block">
+            <section>
+                <header>{{'dishList.filterBar.categories' | i18n}}</header>
+                <div class="checkbox" *ngFor="let categoryFilter of filters.categories; let i = index">
+                    <label for="category_checkbox_{{i}}">
+                        <input id="category_checkbox_{{i}}" name="category_checkbox_{{i}}" type="checkbox" [(ngModel)]="categoryFilter.checked" (change)="runFilter()">
+                        {{categoryFilter.name}}
+                    </label>
+                </div>
+            </section>
+        </div>
+    </aside>
+</div>

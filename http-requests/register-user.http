@@ -1,0 +1,6 @@
+POST /api/Account/Register HTTP/1.1
+Host: horizon-api.azurewebsites.net
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+UserName=horizontest&Password=SuperPassword&ConfirmPassword=SuperPassword

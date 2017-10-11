@@ -1,0 +1,17 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "vsicons.projectDetection.disableDetect": true,
+    "files.autoSave": "onFocusChange",
+    "git.confirmSync": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.formatOnSave": false,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
+    "tslint.autoFixOnSave": true,
+    "tslint.rulesDirectory": "./node_modules/codelyzer"
+}

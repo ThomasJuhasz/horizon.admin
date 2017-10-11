@@ -1,0 +1,121 @@
+.ajax-button{
+  position:relative;
+  text-align:center;
+  height: 34px;
+  background-color: #20a8d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+.ajax-button.success{
+  background-color: #46CC46;
+  -webkit-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+.ajax-button.success .submit {
+  opacity: 0;
+}
+
+.ajax-button.error{
+  background-color:#cc0000;
+  -webkit-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+.ajax-button.error .submit {
+  opacity: 0;
+}
+
+.submit{
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width:100%;
+  padding: 0 1.5rem;
+  text-align: center;
+  background-color:#333;
+  border: 2px solid transparent;
+  color: #f6f6f6;
+  cursor:pointer !important;
+  outline:none;
+  -webkit-transform: rotate(360deg) !important;
+  transform: rotate(360deg) !important;
+  -webkit-transform: scale(1) !important;
+  transform: scale(1) !important;
+  transition: opacity 0.3s ease;
+  background-color: #20a8d8;
+  transition: all 0.2s ease-in-out;
+
+  &:hover{
+    color: #fff;
+    background-color: #1985ac;
+    border-color: #187fa3;
+  }
+
+  &.loading{
+    transition: all 0.3s ease;
+    font-size:0;
+    width: 10px;
+    height: 10px;
+    margin-top: 0;
+    border-radius:10px;
+    padding: 6px;
+    border-left:3px solid rgba(255,255,255,.8);
+    border-top:3px solid rgba(255,255,255,.8);
+    background-color:transparent !important;
+    animation-name: rotateAnimation;
+    -webkit-animation-name: wk-rotateAnimation;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+}
+
+@keyframes rotateAnimation {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes wk-rotateAnimation {
+    0%   {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+.fa{
+  color:#ffffff;
+  font-size:18px !important;
+  position:absolute;
+  transition: all 0.3s ease;
+  -webkit-transform:scaleX(0) !important;
+  transform:scaleX(0) !important;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -9px;
+}
+
+.success, .error{
+  color: white;
+  transition: all 0.3s ease;
+  -webkit-transform:scaleX(1) !important;
+  transform:scaleX(1) !important;
+}
+
+.hide-loading{
+  opacity:0;
+  transition: all 0.3s ease;
+  -webkit-transform: rotate(0deg) !important;
+  transform: rotate(0deg) !important;
+  -webkit-transform:scale(0) !important;
+  transform:scale(0) !important;
+}

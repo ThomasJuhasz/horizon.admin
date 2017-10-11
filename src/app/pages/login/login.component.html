@@ -1,0 +1,41 @@
+<div class="simple-flex-container">
+    <div class="row login-container">
+      <div class="login-box card p-2">
+        <div class="card-block">
+          <h1>{{'login.title' | i18n}}</h1>
+          <p class="text-muted">{{'login.sign_in_to_continue' | i18n}}</p>
+          <div class="input-group mb-1">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input type="text" [(ngModel)]="model.username" class="form-control" [placeholder]="'login.email' | i18n">
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-addon"><i class="icon-lock"></i></span>
+            <input type="password" [(ngModel)]="model.password" class="form-control" [placeholder]="'login.password' | i18n">
+          </div>
+          <div class="row">
+            <div class="login-button-container">
+              <app-ajax-button [params]="loginButtonParams"></app-ajax-button>
+            </div>
+            <div class="forgot-password-container">
+              <button type="button" class="btn btn-link px-0">Forgot password?</button>
+            </div>
+            <div *ngIf="!!error">
+              <div style="color: green">//TODO: need specific error message for each use case, change to user friendly error messages</div>
+              <div>
+                {{error | json}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="register-box card card-inverse card-primary">
+        <div class="card-block text-center">
+          <div>
+            <h2 class="sign-up-header">{{'login.no_account' | i18n}}</h2>
+            <p>{{'login.sign_up_wording' | i18n}}</p>
+            <button type="button" routerLink="/registration" class="btn btn-primary active mt-1">{{'login.register_button' | i18n}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

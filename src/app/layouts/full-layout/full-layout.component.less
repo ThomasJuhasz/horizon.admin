@@ -1,0 +1,80 @@
+.main {
+    padding-top: 20px;
+}
+
+.navbar .nav-item {
+    width: 60px;
+
+    .fa-search {
+        font-size: 20px;
+
+        @media (max-width: 991px) {
+            color: white;
+        }
+    }
+}
+
+.navbar-toggle {
+    position: relative;
+    margin-right: 15px;
+    background-image: none;
+    border-radius: 4px;
+    padding: 20px 15px;
+    border: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    .icon-bar {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: #c0cadd;
+        margin: 4px;
+    }
+
+    &:hover .icon-bar {
+        background-color: #9faecb;
+    }
+
+    &.mobile-sidebar-toggler {
+        position: absolute;
+
+        margin-top: 0;
+        margin-right: 0;
+        padding-left: 20px;
+
+        &:focus {
+            border: none;
+        }
+
+        .icon-bar {
+            background-color: #fff;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .app-header .navbar-toggler {
+        color: white;
+    }
+}
+
+header.navbar .navbar-brand {
+    background-image: url('../../../img/logo.svg');
+    background-size: 50px auto;
+}
+
+.glyphicons:before {
+    padding: 6px 4px;
+}
+
+.sidebar .nav .nav-item .nav-link i.glyphicons.glyphicons-fast-food {
+    margin-top: -4px;
+}
+
+.sidebar-fixed.sidebar-hidden .app-footer, .sidebar-fixed.sidebar-hidden .main {
+    margin-left: 0
+}

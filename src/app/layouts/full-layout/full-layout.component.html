@@ -1,0 +1,74 @@
+<header class="app-header navbar">
+    <button type="button" class="navbar-toggle navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">
+        <div class="bars">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </div>
+        <div class="close-button">
+            <i class="zmdi zmdi-close"></i>
+        </div>
+    </button>
+    <a class="navbar-brand" routerLink="/dashboard"></a>
+    <ul class="nav navbar-nav hidden-md-down">
+        <li class="nav-item">
+            <button type="button" class="navbar-toggle navbar-toggler sidebar-toggler">
+                <div class="bars">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <div class="close-button">
+                    <i class="zmdi zmdi-close"></i>
+                </div>
+            </button>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <div class="btn-group" dropdown placement="bottom right">
+                <div class="nav-link nav-pill avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
+                    <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                </div>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="simple-dropdown">
+                    <div class="dropdown-header text-center">
+                        {{user.username}}
+                    </div>
+                    <a class="dropdown-item" routerLink="/profile"><i class="fa fa-user"></i> {{ 'header.profile' | i18n }} </a>
+                    <a class="dropdown-item" routerLink="/profile"><i class="fa fa-user"></i> {{ 'header.profile' | i18n }} </a>
+                    <a class="dropdown-item" routerLink="/login"><i class="fa fa-lock"></i> {{ 'header.logout' | i18n }} </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item" (click)="navClicked()">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/dashboard"><i class="icon-speedometer"></i> {{'routing.dashboard' | i18n }} </a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="/dishes"><i class="glyphicons glyphicons-fast-food"></i> {{'routing.dishes' | i18n }} </a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="/delivery"><i class="fa fa-motorcycle"></i> {{'routing.delivery' | i18n }} </a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="/billing"><i class="fa fa-credit-card"></i> {{'routing.billing' | i18n }} </a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="/reports"><i class="fa fa-pie-chart"></i> {{'routing.reports' | i18n }} </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+        <ol class="breadcrumb mb-0">
+        <app-breadcrumbs></app-breadcrumbs>
+        </ol>
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+</div>

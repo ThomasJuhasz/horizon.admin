@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Horizon.Admin</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/css/simple-line-icons.css" rel="stylesheet">
+  <link href="assets/css/glyphicons.css" rel="stylesheet">
+</head>
+<body>
+  <app-root class="app header-fixed sidebar-fixed"></app-root>
+
+  <div id="full-page-loader">
+    <div class="full-page-loader-icon"></div>
+  </div>
+  <style>
+    #full-page-loader {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f6f6f6;
+      z-index: 9999999999999999;
+    }
+
+    #full-page-loader.hide-full-page-loader {
+      display: none;
+    }
+
+    .full-page-loader-icon {
+      background-color: #333;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      font-size: 0;
+      width: 15px;
+      height: 15px;
+      margin-top: 0;
+      border-radius: 15px;
+      padding: 10px;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+      border-left: 3px solid rgba(0, 0, 0, .5);
+      background-color: transparent !important;
+      animation-name: rotateAnimation;
+      -webkit-animation-name: wk-rotateAnimation;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      animation-delay: 0.2s;
+      -webkit-animation-delay: 0.2s;
+      animation-iteration-count: infinite;
+      -webkit-animation-iteration-count: infinite;
+    }
+
+    @keyframes rotateAnimation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes wk-rotateAnimation {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes wk-rotateAnimation {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeOutToNone {
+      0% {
+        display: block;
+        opacity: 1;
+      }
+      1% {
+        opacity: 0;
+      }
+      100% {
+        display: none;
+        opacity: 0;
+      }
+    }
+  </style>
+</body>
+</html>
